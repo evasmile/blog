@@ -1,0 +1,24 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "my learning for creating a blog web",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evasmile/blog.git"
+  },
+  "author": "SurpriseMathonsi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evasmile/blog/issues"
+  },
+  "homepage": "https://github.com/evasmile/blog#readme",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.19.2"
+  }
+}
