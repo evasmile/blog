@@ -1,0 +1,26 @@
+<%- include('partials/header.ejs') %>
+
+<h1>ADD NEW BLOG</h1>
+<hr>
+<form action="/newBlog" method="post">
+
+  <label for="title">TITLE</label>
+  <br>
+  <input type="text" name="title" required>
+  <br>
+  <label for="Author">AUTHOR</label>
+  <br>
+  <input type="text" name="author" required>
+  <br>
+  <label for="message">MESSAGE</label>
+  <br>
+  <textarea name="message" id="" cols="90" rows="20" required></textarea>
+  <br>
+  <input type="submit" value="Submit">
+
+
+</form>
+
+
+
+<%- include('partials/footer.ejs') %>

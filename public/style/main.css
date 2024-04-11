@@ -1,0 +1,32 @@
+.body{
+    background-color: aqua;
+    height: 490px;
+
+}
+.footerImg{
+    border-radius: 30%;
+    max-height: 30px;
+    max-width: 30px;
+
+}
+
+.image-show{
+
+    max-width: 300px;
+    max-height: 300px;
+    padding: 10px;
+    
+}
+
+.cardsummary{
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+    padding: 20px;
+}
+
+
+
+
+
+
