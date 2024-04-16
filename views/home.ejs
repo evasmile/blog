@@ -1,48 +1,56 @@
 <%- include('partials/header.ejs') %>
 
-<% let c = 1 %>
-<%blog.forEach(blog => {%>
+<div  style="text-align: center; align-items: center;">
 
+
+
+<H1 class="titleBlog">MY BLOGS</H1>
+<hr>
+<%if(locals.blog){%>
+<% let c = 1 %>
+
+<%blog.forEach(blog => {%>
  <% if(c==1){ %>
 
     <div class="cardsummary">
         <div  style="padding: 20px;">
-            <h1><%= blog.title %></h1>
-            <h3><%= blog.author %></h3>
-            <p><%= blog.message %></p>
-            <a href="">read more....</a>
+            <h1><%= blog.blog.title %></h1>
+            <h3><%= blog.blog.author %></h3>
+            <p><%= blog.blog.message %></p>
+            <a href='/moreread/<%= blog.id %>'>read more....</a>
         </div>
         <div class="image-show">
             <img src="pictures/pic1.jpg" class="image-show" alt="">
         </div>
+        
     </div>
-
+    <hr >
      <% c=0 %>
     <%}else{ %>
 
         <div class="cardsummary">
             <div class="image-show">
-                <img src="pictures/pic1.jpg" class="image-show" alt="">
+                <img src="pictures/pic2.jpg" class="image-show" alt="">
             </div>
             <div style="padding: 20px;">
-                <h1><%= blog.title %></h1>
-                <h3><%= blog.author %></h3>
-                <p><%= blog.message %></p>
-                <a href="">read more....</a>
+                <h1><%= blog.blog.title %></h1>
+                <h3><%= blog.blog.author %></h3>
+                <p><%= blog.blog.message %></p>
+                <a href='/moreread/<%= blog.id %>'>read more....</a>
             </div>
        
         </div>
-
+<hr>
         <% c=1 %>
         <%} %>
     <% }); %>
 
-
+    <%} %>
 
     
   
     
        
 
-
+</div>
     <%- include('partials/footer.ejs') %>

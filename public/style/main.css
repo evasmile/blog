@@ -1,19 +1,65 @@
-.body{
-    background-color: aqua;
-    height: 490px;
 
-}
 .footerImg{
     border-radius: 30%;
-    max-height: 30px;
-    max-width: 30px;
+    max-height: 20px;
+    max-width: 20px;
 
 }
+
+
+
+/* newBlog*/
+.titleBlog{
+   font-size: 50px;
+   width: 100%;
+   text-align: center;
+   align-items: center;
+   margin: 0;
+}
+.inputNewBlog{
+    border-radius: 3%;
+    border-color: crimson;
+    width: 100%;
+}
+
+.newBlogDiv{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 15px;
+    
+}
+
+.formPicDiv{
+display: flex;
+flex-direction: row;
+padding: 8px;
+text-align: center;
+align-items: center;
+}
+.picForm{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+   
+}
+
+.formNewBlog{
+    width: 100%;
+}
+.submitBtn{
+    background-color:crimson ;
+    border-radius: 10%;
+    border-color: black;
+    color: aliceblue;
+}
+
+/*home*/
 
 .image-show{
 
-    max-width: 300px;
-    max-height: 300px;
+    width: 80%;
     padding: 10px;
     
 }
@@ -22,11 +68,5 @@
     display: flex;
     flex-direction: row;
     margin: 15px;
-    padding: 20px;
+    padding: 40px;
 }
-
-
-
-
-
-

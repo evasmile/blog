@@ -19,6 +19,8 @@
   "homepage": "https://github.com/evasmile/blog#readme",
   "dependencies": {
     "ejs": "^3.1.9",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "jquery": "^3.7.1",
+    "jsdom": "^24.0.0"
   }
 }

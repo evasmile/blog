@@ -1,26 +1,36 @@
 <%- include('partials/header.ejs') %>
 
-<h1>ADD NEW BLOG</h1>
+<div class="newBlogDiv">
+<h1 class="titleBlog">ADD NEW BLOG</h1>
 <hr>
-<form action="/newBlog" method="post">
+<div class="formPicDiv">
+<div class="formNewBlog">
+  <form action="/newBlog" method="post">
 
-  <label for="title">TITLE</label>
-  <br>
-  <input type="text" name="title" required>
-  <br>
-  <label for="Author">AUTHOR</label>
-  <br>
-  <input type="text" name="author" required>
-  <br>
-  <label for="message">MESSAGE</label>
-  <br>
-  <textarea name="message" id="" cols="90" rows="20" required></textarea>
-  <br>
-  <input type="submit" value="Submit">
+    <label  for="title ">TITLE :</label>
+    <br>
+    <input class="title inputNewBlog" type="text" name="title" required>
+    <br>
+    <label for="Author inputNewBlog">AUTHOR :</label>
+    <br>
+    <input class="author inputNewBlog" type="text" name="author" required>
+    <br>
+    <label for="message inputNewBlog">MESSAGE :</label>
+    <br>
+    <textarea class="message inputNewBlog" name="message" id="" cols="90" rows="9" required></textarea>
+    <br>
+    <input class="submitBtn" type="submit" value="Submit">
+  
+  
+  </form>
+</div>
+<div class="formNewBlog" >
+<img class="picForm" src="pictures/pic1.jpg" alt="picture">
+</div>
+</div>
 
-
-</form>
-
+</div>
+ 
 
 
 <%- include('partials/footer.ejs') %>

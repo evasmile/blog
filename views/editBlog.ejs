@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+
+
+<form action="/blog/edit/<%= blog.id %>" method="post">
+
+    <label for="title">TITLE</label>
+    <br>
+    <input class="title" type="text" name="title" required value="<%= blog.blog.title %>">
+    <br>
+    <label for="Author">AUTHOR</label>
+    <br>
+    <input class="author" type="text" name="author" value="<%= blog.blog.author %>" required>
+    <br>
+    <label for="message">MESSAGE</label>
+    <br>
+    <textarea class="message" name="message"  id="" cols="90" rows="10"  value="<%= blog.blog.message %>" required><%= blog.blog.message %></textarea>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+<%- include('partials/footer.ejs') %>
