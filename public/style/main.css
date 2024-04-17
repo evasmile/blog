@@ -59,7 +59,8 @@ align-items: center;
 
 .image-show{
 
-    width: 80%;
+    width: 100%;
+    height: 50%;
     padding: 10px;
     
 }
@@ -70,3 +71,5 @@ align-items: center;
     margin: 15px;
     padding: 40px;
 }
+
+

@@ -35,7 +35,7 @@ app.post('/newBlog',function(req,res){
    
 })
 
-app.get('/moreread/:id',function(req,res){
+app.get('/moreread/:id/blog',function(req,res){
   
    blogs.forEach(blog => {
     
