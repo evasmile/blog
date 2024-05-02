@@ -5,6 +5,7 @@ const app = express();
 
 
 app.use(bodyParser.urlencoded({extended : true}))
+app.use(bodyParser.json());
 
 const db = new pg.Client({
     user: "postgres",
@@ -18,7 +19,7 @@ const db = new pg.Client({
 
 app.post('/register',async function(req,res){
 
-    
+    console.log(req.body)
     try{
      const result =  await db.query('INSERT INTO users (email,password,name,surname,cellphone) VALUES ($1,$2,$3,$4,$5)',
     [req.body.email,
@@ -32,25 +33,23 @@ app.post('/register',async function(req,res){
     }catch(err){
     res.send(err)
     
-
 }
+})
 
+app.post('/login', async function(req,res){
 
-app.post('/login',async function(req,res){
-
-    console.log(req.body)
     try {
         const result = await db.query("SELECT (email , password) FROM users WHERE email = $1 AND password = $2",
         [req.body.email,req.body.password])
-        res.send(result.rowCount)
+        res.json(true)
         
     } catch (error) {
-        res.send(error)
+        res.json(error)
     }
 })
     
 
-})
+
 
 
 app.listen('4000',function(){

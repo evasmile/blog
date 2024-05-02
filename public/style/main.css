@@ -6,7 +6,29 @@
 
 }
 
+/*register*/
 
+.reg{
+
+    background-color: bisque;
+    text-align: center;
+    justify-content: center;
+    margin-left: 80px;
+    margin-right: 80px;
+    border-radius: 10px;
+    padding: 20px;
+    padding-left: 80px;
+    padding-right: 80px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+}
+
+.inpuReg{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
 
 /* newBlog*/
 .titleBlog{

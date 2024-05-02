@@ -9,10 +9,14 @@ import axios from "axios";
 import { log } from 'console';
 const app = express();
 const port = 3000;
+const API_URL = "http://localhost:4000";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(bodyParser.urlencoded({extended : true}))
+app.use(bodyParser.json());
 app.use(express.static('public'))
+
+let config = {Headers:{'Content-Type':'application/x-www-form-urlencode'}}
 
 const dom = new jsdom.JSDOM("")
 const $ = jQuery(dom.window)
@@ -25,10 +29,17 @@ app.get('/',function(req,res){
 
 app.post('/login',async function(req,res){
 
-   await axios.post('/login', function(err,result){
-
-    
-    })
+    try {
+        const result = await axios.post(`${API_URL}/login`, req.body)
+        if(result.data){
+            res.redirect('/home')
+        }else{
+            res.redirect('/')
+        }
+    } catch (error) {
+        console.log(error)
+    }
+  
 
 
 })
@@ -37,9 +48,20 @@ app.get('/register',function(req,res){
     res.render('register.ejs')
 })
 
-app.post('/register',function(req,res){
+app.post('/api/register',async function(req,res){
 
-  console.log(req.body)
+    const data =req.body;
+
+    try {
+        const result = await axios.post(`${API_URL}/register`, data)
+        if(result.data=="REGISTERD"){
+            res.redirect('/')
+        }
+    } catch (error) {
+        console.log(error)
+    }
+
+
 
 })
 

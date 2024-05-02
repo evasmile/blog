@@ -1,35 +1,26 @@
 <%- include('partials/header.ejs') %>
 
 <h1>Register </h1>
+<div class="reg">
 
-<form method="post" action="/register">
-<label for="">Name</label>
+
+<form method="post" action="/api/register">
 <br>
-<input type="text" name="name">
+<input class="inpuReg" type="text" name="name" placeholder="Your Name">
 <br>
-<label for="">Surname</label>
+<input class="inpuReg" type="text" name="surname" placeholder="Your Surname" >
 <br>
-<input type="text" name="surname" >
+<input class="inpuReg" type="number" name="cellphone" placeholder="Your Cell No">
 <br>
-<label for="">Contact</label>
+<input class="inpuReg" type="email" name="email" placeholder="Your Email">
 <br>
-<input type="number" name="cellnumber">
+<input class="inpuReg" type="password" name="password" placeholder="Password">
 <br>
-<label for="">Email </label>
-<br>
-<input type="email" name="email">
-<br>
-<label for="">Password</label>
-<br>
-<input type="password" name="password">
-<br>
-<label for="">Re-enter Password</label>
-<br>
-<input type="password" name="repassword" >
+<input class="inpuReg" type="password" name="repassword" placeholder="Confirm Password" >
 <br>
 <button type="submit">Register</button>
 
-
+</div>
 </form>
 
 
