@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import bodyParser from "body-parser";
 import jsdom from "jsdom";
 import jQuery from 'jquery';
+import axios from "axios";
 
 import { log } from 'console';
 const app = express();
@@ -16,7 +17,34 @@ app.use(express.static('public'))
 const dom = new jsdom.JSDOM("")
 const $ = jQuery(dom.window)
 
+
 app.get('/',function(req,res){
+
+    res.render('login.ejs')
+})
+
+app.post('/login',async function(req,res){
+
+   await axios.post('/login', function(err,result){
+
+    
+    })
+
+
+})
+
+app.get('/register',function(req,res){
+    res.render('register.ejs')
+})
+
+app.post('/register',function(req,res){
+
+  console.log(req.body)
+
+})
+
+
+app.get('/home',function(req,res){
    
     res.render('home.ejs',{blog:blogs})
 })
