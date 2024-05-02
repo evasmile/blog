@@ -35,17 +35,18 @@ app.post('/newBlog',function(req,res){
    
 })
 
-app.get('/moreread/:id/blog',function(req,res){
+app.post('/moreread/',function(req,res){
   
-   blogs.forEach(blog => {
+    console.log(req.body)
+   //blogs.forEach(blog => {
     
-    if(blog.id.toString()===req.params.id){
+    //if(blog.id.toString()===req.params.id){
         
-       res.render('blog.ejs',{blog:blog})
+      // res.render('blog.ejs',{blog:blog})
        
         
-    }
-   });
+   // }
+   //});
   
 })
 

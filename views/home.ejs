@@ -6,6 +6,8 @@
 
 <H1 class="titleBlog">MY BLOGS</H1>
 <hr>
+
+
 <%if(locals.blog){%>
 <% let c = 1 %>
 
@@ -17,7 +19,11 @@
             <h1><%= blog.blog.title %></h1>
             <h3><%= blog.blog.author %></h3>
             <p style="font-size: 80%;"><%= blog.blog.message.substring(1, 100)  %></p>
-            <a href='/moreread/<%=blog.id%>/blog'>read more....</a>
+            <form action="/moreread/" method="post">
+             
+                <input type="submit"  value="READ MORE">
+            </form>
+           
         </div>
         <div class="image-show">
             <img src="pictures/pic1.jpg" style="width: 90%;" alt="">
