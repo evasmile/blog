@@ -3,14 +3,14 @@
 <% if(locals.blog){  %>
 
 <div style="text-align: center;">
-    <h1><%= blog.blog.title %></h1>
-    <h3><%= blog.blog.author %></h3>
-    <p><%= blog.blog.message %></p>
+    <h1><%= blog.title %></h1>
+    <h3><%= blog.author %></h3>
+    <p><%= blog.message %></p>
    
     <a href='/delete/<%= blog.id %>'><button class="submitBtn" type="submit" >Delete</button></a>
     <a href='/edit/<%= blog.id %>'><button class="submitBtn" type="submit" >Edit</button></a>
 </div>
 
-<% } %>}
+<% } %>
 
 <%- include('partials/footer.ejs') %>

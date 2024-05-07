@@ -55,14 +55,39 @@ app.post('/login', async function(req,res){
 app.get('/post',async function(req,res){
    
     try {
-        const result = await db.query(`SELECT title,author,message,date from blogs WHERE user_id = $1`,[req.query.id])
+        const result = await db.query(`SELECT id,title,author,message,date from blogs WHERE user_id = $1`,[req.query.id])
         res.json(result.rows)
     } catch (error) {
         console.log(error)
         
     }
 })
-    
+   
+app.get('/post/id',async function(req,res){
+
+    try {
+        const result = await db.query(`SELECT title,author,message,date FROM blogs WHERE id = $1`,[req.query.id])
+        res.json(result.rows)
+    } catch (error) {
+        console.log(error)
+    }
+  
+
+})
+
+app.post('/newpost',async function(req,res){
+
+    console.log(req.body)
+    try {
+        const result = db.query('INSERT INTO blogs (title,author,message,date,user_id) VALUES ($1,$2,$3,$4,$5)',
+    [req.body.title,req.body.author,req.body.message,new Date(),2])
+
+    console.log(result)
+    } catch (error) {
+        console.log(error)
+    }
+
+})
 
 
 

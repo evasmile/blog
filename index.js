@@ -91,8 +91,14 @@ app.get('/newBlog.ejs',function(req,res){
     res.render('newBlog.ejs')
 })
 
-app.post('/newBlog',function(req,res){
+app.post('/newBlog',async function(req,res){
    
+
+    try {
+        const result = await axios.post(`${API_URL}/newpost`,{body:req.body,id:id})
+    } catch (error) {
+        console.log(error)
+    }
     addBlog( {id:blogs.length+1,
         blog:req.body}  );
 
@@ -101,11 +107,17 @@ app.post('/newBlog',function(req,res){
    
 })
 
-app.post('/moreread/',function(req,res){
+app.post('/moreread',async function(req,res){
   
-    console.log(req.body)
-   //blogs.forEach(blog => {
-    
+      console.log(req.query.id)
+    try {
+        
+        const result = await axios.get(`${API_URL}/post/id/?id=${req.query.id}`)
+        console.log(result.data)
+        res.render('blog.ejs',{blog:result.data[0]})
+    } catch (error) {
+        console.log(error)
+    }
     //if(blog.id.toString()===req.params.id){
         
       // res.render('blog.ejs',{blog:blog})
