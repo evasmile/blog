@@ -19,7 +19,7 @@ const db = new pg.Client({
 
 app.post('/register',async function(req,res){
 
-    console.log(req.body)
+   // console.log(req.body)
     try{
      const result =  await db.query('INSERT INTO users (email,password,name,surname,cellphone) VALUES ($1,$2,$3,$4,$5)',
     [req.body.email,
@@ -38,13 +38,28 @@ app.post('/register',async function(req,res){
 
 app.post('/login', async function(req,res){
 
+
     try {
-        const result = await db.query("SELECT (email , password) FROM users WHERE email = $1 AND password = $2",
+        const result = await db.query("SELECT id ,email , password FROM users WHERE email = $1 AND password = $2",
         [req.body.email,req.body.password])
-        res.json(true)
-        
+       
+        if(result.rowCount == 1){
+         
+            res.json({status:true, data:result})
+        }else{ res.json({status:false, data:{}})}
     } catch (error) {
         res.json(error)
+    }
+})
+
+app.get('/post',async function(req,res){
+   
+    try {
+        const result = await db.query(`SELECT title,author,message,date from blogs WHERE user_id = $1`,[req.query.id])
+        res.json(result.rows)
+    } catch (error) {
+        console.log(error)
+        
     }
 })
     

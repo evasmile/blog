@@ -10,15 +10,15 @@
 
 <%if(locals.blog){%>
 <% let c = 1 %>
-
+<%console.log(blog) %>
 <%blog.forEach(blog => {%>
  <% if(c==1){ %>
 
     <div class="cardsummary">
         <div class="image-show"  style="padding: 20px;">
-            <h1><%= blog.blog.title %></h1>
-            <h3><%= blog.blog.author %></h3>
-            <p style="font-size: 80%;"><%= blog.blog.message.substring(1, 100)  %></p>
+            <h1><%= blog.title %></h1>
+            <h3><%= blog.author %></h3>
+            <p style="font-size: 80%;"><%= blog.message.substring(1, 100)  %></p>
             <form action="/moreread/" method="post">
              
                 <input type="submit"  value="READ MORE">
@@ -39,9 +39,9 @@
                 <img src="pictures/pic2.jpg" style="width: 90%;" alt="">
             </div>
             <div class="image-show" style="padding: 20px;">
-                <h1><%= blog.blog.title %></h1>
-                <h3><%= blog.blog.author %></h3>
-                <p style="font-size: 80%;"><%= blog.blog.message.substring(1, 100) %></p>
+                <h1><%= blog.title %></h1>
+                <h3><%= blog.author %></h3>
+                <p style="font-size: 80%;"><%= blog.message.substring(1, 100) %></p>
                 <a href='/moreread/<%=blog.id%>/blog'>read more....</a>
             </div>
        

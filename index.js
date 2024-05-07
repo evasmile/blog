@@ -20,6 +20,7 @@ let config = {Headers:{'Content-Type':'application/x-www-form-urlencode'}}
 
 const dom = new jsdom.JSDOM("")
 const $ = jQuery(dom.window)
+let id ="";
 
 
 app.get('/',function(req,res){
@@ -29,9 +30,13 @@ app.get('/',function(req,res){
 
 app.post('/login',async function(req,res){
 
+   
     try {
         const result = await axios.post(`${API_URL}/login`, req.body)
-        if(result.data){
+
+       
+        if(result.data.status){
+            id = result.data.data.rows[0].id
             res.redirect('/home')
         }else{
             res.redirect('/')
@@ -66,9 +71,20 @@ app.post('/api/register',async function(req,res){
 })
 
 
-app.get('/home',function(req,res){
+app.get('/home',async function(req,res){
+
+    try {
+        
+        const result = await axios.get(`${API_URL}/post/?id=${id}`)
+
+        console.log(result.data)
+          res.render('home.ejs',{blog:result.data})
+      
+    } catch (error) {
+        console.log(error)
+    }
    
-    res.render('home.ejs',{blog:blogs})
+  
 })
 
 app.get('/newBlog.ejs',function(req,res){
