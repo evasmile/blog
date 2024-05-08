@@ -6,6 +6,42 @@
 
 }
 
+body{
+    margin-top: 50px;
+}
+
+/*login*/
+
+.mainDiv{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 20% 30% ;
+    
+}
+
+.signindav{
+    background-color: rgba(255, 228, 196, 0.952);
+    border-radius: 10px;
+    border-color: crimson;
+    width: 550px;
+    height: 220px;
+    border-width: 10px;
+    justify-items: center;
+    text-align: center;
+    padding-top: 10%;
+    grid-column: 2;
+    grid-row: 2;
+    z-index: 3;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.picSignIn{
+    grid-row: 1 / 5;
+    grid-column: 1/4;
+    z-index: 2;
+}
+
 /*register*/
 
 .reg{
@@ -92,6 +128,7 @@ align-items: center;
     flex-direction: row;
     margin: 15px;
     padding: 40px;
+    
 }
 
 

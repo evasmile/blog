@@ -141,7 +141,7 @@ app.get('/edit',async function(req,res){
 
 app.post('/blog/edit/',async function(req,res){
 
-    console.log(req.query)
+  
     try {
         const result =await  axios.patch(`${API_URL}/blog/edit/?id=${req.query.id}`,req.body)
        if(result.data){
@@ -159,7 +159,7 @@ app.post('/blog/edit/',async function(req,res){
 
 app.get('/delete/post/',async function(req,res){
 
-    console.log(req.query)
+  
     try {
         const result = await axios.delete(`${API_URL}/post/delete/?id=${req.query.id}`)
 

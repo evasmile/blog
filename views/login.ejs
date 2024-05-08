@@ -1,15 +1,25 @@
 <%- include('partials/header.ejs') %>
 
-<h1>WELCOME TO OUR BLOG</h1>
 
-<form method="post" action="/login">
+<div class="mainDiv">
+  
+    <div class="signindav">
+        <h1>WELCOME TO MY BLOG</h1>
 
-    <input type="email" placeholder="email" name="email">
-    <input type="password" placeholder="password" name="password">
-    <button type="submit">LOG IN</button>
-</form>
+        <form method="post" action="/login">
+        
+            <input type="email" placeholder="email" name="email">
+            <input type="password" placeholder="password" name="password">
+            <button type="submit">LOG IN</button>
+        </form>
+        
+        <p>Don`t have an account please click  <a href="/register">here</a></p>
+    </div>
+    <div class="picSignIn">
+        <img src="pictures/blog1.png" style="width: 100%; height: 60%;" alt="pic">
+    </div>
+</div>
 
-<p>Don`t have an account please click  <a href="/register">here</a></p>
 
 
 <%- include('partials/footer.ejs') %>
