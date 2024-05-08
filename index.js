@@ -77,7 +77,7 @@ app.get('/home',async function(req,res){
         
         const result = await axios.get(`${API_URL}/post/?id=${id}`)
 
-        console.log(result.data)
+    
           res.render('home.ejs',{blog:result.data})
       
     } catch (error) {
@@ -87,7 +87,7 @@ app.get('/home',async function(req,res){
   
 })
 
-app.get('/newBlog.ejs',function(req,res){
+app.get('/newBlog',function(req,res){
     res.render('newBlog.ejs')
 })
 
@@ -96,79 +96,80 @@ app.post('/newBlog',async function(req,res){
 
     try {
         const result = await axios.post(`${API_URL}/newpost`,{body:req.body,id:id})
+
+        if(result){
+            res.redirect('/home')
+        }else{
+            res.redirect('/newBlog')
+        }
     } catch (error) {
         console.log(error)
     }
-    addBlog( {id:blogs.length+1,
-        blog:req.body}  );
+  
 
-    res.redirect('/')
+    
 
    
 })
 
 app.post('/moreread',async function(req,res){
   
-      console.log(req.query.id)
     try {
         
         const result = await axios.get(`${API_URL}/post/id/?id=${req.query.id}`)
-        console.log(result.data)
+       
         res.render('blog.ejs',{blog:result.data[0]})
     } catch (error) {
         console.log(error)
     }
-    //if(blog.id.toString()===req.params.id){
-        
-      // res.render('blog.ejs',{blog:blog})
-       
-        
-   // }
-   //});
+
   
 })
 
-app.get('/edit/:id',function(req,res){
-    blogs.forEach(blog => {
-    if(blog.id.toString()===req.params.id){  
-           
-            res.render('editBlog.ejs',{blog:blog})
-         return
+app.get('/edit',async function(req,res){
+
+    try {
         
+        const result = await axios.get(`${API_URL}/post/id/?id=${req.query.id}`)
+       
+        res.render('editBlog.ejs',{blog:result.data[0]})
+    } catch (error) {
+        console.log(error)
     }
+  
 });
 
-app.post('/blog/edit/:id',function(req,res){
+app.post('/blog/edit/',async function(req,res){
 
-    blogs.forEach(blog => {
-    
-        
-        if(blog.id.toString()===req.params.id){
+    console.log(req.query)
+    try {
+        const result =await  axios.patch(`${API_URL}/blog/edit/?id=${req.query.id}`,req.body)
+       if(result.data){
+        res.redirect('/home')
+       }else{
 
-            
-            blog.blog.author = req.body.author;
-            blog.blog.title = req.body.title;
-            blog.blog.message = req.body.message;
-         
-            res.render('blog.ejs',{blog:blog})
-            return
-        }
-       });
+       }
+    } catch (error) {
+       // console.log(error)
+    }
+   
 })
 
 
 
-})
+app.get('/delete/post/',async function(req,res){
 
-app.get('/delete/:id',function(req,res){
-    for (let index = 0; index < blogs.length; index++) {
-        if(blogs[index].id.toString()===req.params.id){
-           blogs= blogs.slice(index)
-            res.redirect('/')
-            return
+    console.log(req.query)
+    try {
+        const result = await axios.delete(`${API_URL}/post/delete/?id=${req.query.id}`)
+
+        if(result){
+            res.redirect('/home')
         }
+    } catch (error) {
         
     }
+
 })
 
 app.listen(port,function(){

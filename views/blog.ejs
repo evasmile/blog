@@ -7,8 +7,8 @@
     <h3><%= blog.author %></h3>
     <p><%= blog.message %></p>
    
-    <a href='/delete/<%= blog.id %>'><button class="submitBtn" type="submit" >Delete</button></a>
-    <a href='/edit/<%= blog.id %>'><button class="submitBtn" type="submit" >Edit</button></a>
+    <a href="/delete/post/?id=<%=blog.id %>"><button class="submitBtn" type="submit" >Delete</button></a>
+    <a href='/edit/?id=<%= blog.id %>'><button class="submitBtn" type="submit" >Edit</button></a>
 </div>
 
 <% } %>

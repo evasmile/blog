@@ -1,19 +1,19 @@
 <%- include('partials/header.ejs') %>
 
 
-<form action="/blog/edit/<%= blog.id %>" method="post">
+<form action="/blog/edit/?id=<%= blog.id %>" method="post">
 
     <label for="title">TITLE</label>
     <br>
-    <input class="title" type="text" name="title" required value="<%= blog.blog.title %>">
+    <input class="title" type="text" name="title" required value="<%= blog.title %>">
     <br>
     <label for="Author">AUTHOR</label>
     <br>
-    <input class="author" type="text" name="author" value="<%= blog.blog.author %>" required>
+    <input class="author" type="text" name="author" value="<%= blog.author %>" required>
     <br>
     <label for="message">MESSAGE</label>
     <br>
-    <textarea class="message" name="message"  id="" cols="90" rows="10"  value="<%= blog.blog.message %>" required><%= blog.blog.message %></textarea>
+    <textarea class="message" name="message"  id="" cols="90" rows="10"  value="<%= blog.message %>" required><%= blog.message %></textarea>
     <br>
     <input type="submit" value="Submit">
 </form>

@@ -66,7 +66,7 @@ app.get('/post',async function(req,res){
 app.get('/post/id',async function(req,res){
 
     try {
-        const result = await db.query(`SELECT title,author,message,date FROM blogs WHERE id = $1`,[req.query.id])
+        const result = await db.query(`SELECT id,title,author,message,date FROM blogs WHERE id = $1`,[req.query.id])
         res.json(result.rows)
     } catch (error) {
         console.log(error)
@@ -77,16 +77,48 @@ app.get('/post/id',async function(req,res){
 
 app.post('/newpost',async function(req,res){
 
-    console.log(req.body)
+    
     try {
-        const result = db.query('INSERT INTO blogs (title,author,message,date,user_id) VALUES ($1,$2,$3,$4,$5)',
-    [req.body.title,req.body.author,req.body.message,new Date(),2])
+        const result =await db.query('INSERT INTO blogs (title,author,message,date,user_id) VALUES ($1,$2,$3,$4,$5)',
+    [req.body.body.title,req.body.body.author,req.body.body.message,new Date(),req.body.id])
 
-    console.log(result)
+    if(result.rowCount == 1){
+        res.json(true)
+    }else{
+        res.json(false)
+    }
     } catch (error) {
         console.log(error)
     }
 
+})
+
+app.delete('/post/delete/', async function(req,res){
+    console.log(req.query.id)
+    try {
+        const result = await db.query('DELETE FROM blogs WHERE id = $1',[req.query.id]);
+      if(result.rowCount==1){
+        res.json(true)
+      }else{ res.json(false)}
+    } catch (error) {
+        
+    }
+})
+
+app.patch('/blog/edit',async function(req,res){
+
+    console.log(req.body)
+    try {
+        const result =await db.query('UPDATE blogs SET title = $1 , author = $2 ,message = $3 WHERE id = $4',
+            [req.body.title,req.body.author,req.body.message,req.query.id]
+        )
+
+        if( result.rowCount){
+            res.json(true)
+        }else{res.json(false)}
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 
