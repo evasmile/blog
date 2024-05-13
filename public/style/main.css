@@ -8,6 +8,7 @@
 
 body{
     margin-top: 50px;
+    margin-bottom: 60px;
 }
 
 /*login*/
@@ -95,6 +96,7 @@ flex-direction: row;
 padding: 8px;
 text-align: center;
 align-items: center;
+
 }
 .picForm{
     width: 100%;
@@ -105,6 +107,7 @@ align-items: center;
 
 .formNewBlog{
     width: 100%;
+    padding : 10px;
 }
 .submitBtn{
     background-color:crimson ;
